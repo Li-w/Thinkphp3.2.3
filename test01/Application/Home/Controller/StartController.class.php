@@ -79,9 +79,70 @@ Class StartController extends Controller {
     
     /**
      * 循环和控制输出
+     * @循环输出主要使用volist和foreach。
      */
     public function start9(){
         
+        //1、循环输出volist和foreach
+        $User = M('User');
+        $list = $User->limit(10)->select();
+        $this->assign('list', $list);
+        
+        //模板输出,为空的时候输出提示       
+//        <volist name="list" id="vo" empty="暂时没有数据">
+//        {$vo.id}:{$vo.name}<br/>
+//        </volist>
+       
+        //输出其中的第5～15条记录
+//        <volist name="list" id="vo" offset="5" length='10'>
+//        {$vo.name}
+//        </volist>
+        
+        //输出偶数记录
+        //Mod属性还用于控制一定记录的换行
+//        <volist name="list" id="vo" mod="2" >
+//        {$vo.name}
+//        <eq name="mod" value="4"><br/></eq>
+//        </volist>
+        
+        
+        //2、条件输出
+        //switch
+//        <switch name="User.level" >
+//        <case value = "1" break = "0">输出内容1</case>
+//        <case value = "2">输出内容2</case>
+//        <default />默认情况
+//        </switch>
+        
+        //是gif、png或者jpg的话，就判断为图像格式
+//        <switch name = "Think.get.type">
+//        <case value = "gif|png|jpg">图像格式</case>
+//        <default />其他格式
+//        </switch>
+        
+        
+        //3、比较标签
+        //name变量的值等于value就输出
+//        <eq name="vo.size" value="5">{$vo.name}</eq>
+        
+        
+        //4、范围判断标签
+        //判断模板变量是否在某个范围内
+//        <in name="id" value="1,2,3">id在范围内<else/>id不在范围内</in>
+//        <between name="id" value="1,10">输出内容1</between>
+        
+        //5、赋值判断标签present,empty
+        //判断某个变量是否已经定义
+//        <present name="name">name已经赋值<else /> name还没有赋值</present> 
+        //判断某个变量是否为空        
+//        <empty name="Think.get.name">$_GET['name']为空值</empty>
+        //判断某个常量是否有定义
+//        <defined name="NAME">NAME常量已经定义<else /> NAME常量未定义</defined> 
+        
+        
+        //6、原生代码
+        //第一种：使用php标签       <php>echo 'Hello,world!';</php>
+        //第二种：使用原生php代码   <?php echo 'Hello,world!'; ? >  
     }
 
 }
