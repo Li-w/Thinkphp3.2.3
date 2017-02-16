@@ -10,7 +10,7 @@ and open the template in the editor.
     </head>
     <body>
         <div>
-            <form method="post" action="/thinkphp/test01/index.php/Home/Form/update">
+            <form method="post" action="/thinkphp/Thinkphp3.2.3/test01/index.php/Home/Form/update">
                 标题：<input type="text" name="title" value="<?php echo ($vo["title"]); ?>"/><br/>
                 内容：<textarea name="content" rows="5" cols="45"><?php echo ($vo["content"]); ?></textarea><br/>
                 <input type="hidden" name="id" value="<?php echo ($vo["id"]); ?>"/>
