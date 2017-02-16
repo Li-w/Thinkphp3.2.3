@@ -1,31 +1,31 @@
-https://github.com/Li-w/Test
+https://github.com/
 
-ÉèÖÃusernameºÍemail£¬ÒòÎªgithubÃ¿´Îcommit¶¼»á¼ÇÂ¼ËûÃÇ¡£
+è®¾ç½®usernameå’Œemailï¼Œå› ä¸ºgithubæ¯æ¬¡commitéƒ½ä¼šè®°å½•ä»–ä»¬ã€‚
 $ git config --global user.name "your name"
 $ git config --global user.email "your_email@youremail.com"
 
-1¡¢ÏÂÔØµ½±¾µØ
-	(1)ÓÒ»÷ÎÄ¼ş¼Ğ->Git bash
-	(2)ÊäÈë git clone https://github.com/Li-w/Thinkphp3.2.3.git
+1ã€ä¸‹è½½åˆ°æœ¬åœ°
+	(1)å³å‡»æ–‡ä»¶å¤¹->Git bash
+	(2)è¾“å…¥ git clone https://github.com/Li-w/Thinkphp3.2.3.git
 	(3)cd Thinkphp3.2.3
-	(4)git add .   (Ìí¼Óµ½»º´æÇø)
-	(5)git commit -m "´úÂëÌá½»ËµÃ÷"
+	(4)git add .   (æ·»åŠ åˆ°ç¼“å­˜åŒº)
+	(5)git commit -m "ä»£ç æäº¤è¯´æ˜"
 	(6)git push -u origin master
-	(7)ÊäÈëÕËºÅÃÜÂë
-	(8)ÉÏ´«ok
+	(7)è¾“å…¥è´¦å·å¯†ç 
+	(8)ä¸Šä¼ ok
 
-2¡¢±¾µØ¸üĞÂµ½git
+2ã€æœ¬åœ°æ›´æ–°åˆ°git
 	(1)git add .
 	(2)git commit -m "add"
 	(3)git push origin
 
-3¡¢´ÓGit¸üĞÂµ½±¾µØ
+3ã€ä»Gitæ›´æ–°åˆ°æœ¬åœ°
 	(1)git pull?
 
-ºÏ²¢·ÖÖ§£ºGit merge
+åˆå¹¶åˆ†æ”¯ï¼šGit merge
 	Git diff
 
-´´½¨·ÖÖ§£ºgit branch newbranch
-²é¿´·ÖÖ§£ºgit branch
-ÇĞ»»·ÖÖ§£ºgit checkout newbranch
-É¾³ı·ÖÖ§£ºgit branch -d newbranch
+åˆ›å»ºåˆ†æ”¯ï¼šgit branch newbranch
+æŸ¥çœ‹åˆ†æ”¯ï¼šgit branch
+åˆ‡æ¢åˆ†æ”¯ï¼šgit checkout newbranch
+åˆ é™¤åˆ†æ”¯ï¼šgit branch -d newbranch
