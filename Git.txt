@@ -4,22 +4,26 @@ https://github.com/Li-w/Test
 $ git config --global user.name "your name"
 $ git config --global user.email "your_email@youremail.com"
 
-1.右击文件夹->Git bash
+1、下载到本地
+	(1)右击文件夹->Git bash
+	(2)输入 git clone https://github.com/Li-w/Thinkphp3.2.3.git
+	(3)cd Thinkphp3.2.3
+	(4)git add .   (添加到缓存区)
+	(5)git commit -m "代码提交说明"
+	(6)git push -u origin master
+	(7)输入账号密码
+	(8)上传ok
 
-2.输入 git clone https://github.com/Li-w/Thinkphp3.2.3.git
+2、本地更新到git
+	(1)git add .
+	(2)git commit -m "add"
+	(3)git push origin
 
-3.cd test
+3、从Git更新到本地
+	(1)git pull?
 
-4.git add .   (添加到缓存区)
-
-5.git commit -m "代码提交说明"
-
-6.git push -u origin master
-	下次更新直接git push
-
-7.输入账号密码
-
-8.上传ok
+合并分支：Git merge
+	Git diff
 
 创建分支：git branch newbranch
 查看分支：git branch
