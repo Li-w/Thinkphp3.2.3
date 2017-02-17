@@ -7,7 +7,7 @@ use Think\Controller;
 Class StartController extends Controller {
 
     /**
-     * 连贯操作
+     * 4、连贯操作
      * @连贯操作的方法调用顺序没有先后
      * @除了select方法必须放到最后一个外
      */
@@ -28,7 +28,7 @@ Class StartController extends Controller {
     }
 
     /**
-     * 变量
+     * 5、变量
      * @不建议直接使用传统方式获取
      * @因为没有统一的安全处理机制
      * @更好的方式是在框架中统一使用I函数进行变量获取和过滤
@@ -78,7 +78,7 @@ Class StartController extends Controller {
     }
     
     /**
-     * 循环和控制输出
+     * 9、循环和控制输出
      * @循环输出主要使用volist和foreach。
      */
     public function start9(){
@@ -143,6 +143,109 @@ Class StartController extends Controller {
         //6、原生代码
         //第一种：使用php标签       <php>echo 'Hello,world!';</php>
         //第二种：使用原生php代码   <?php echo 'Hello,world!'; ? >  
+    }
+    
+    /**
+     * 12、空操作和空控制器
+     */
+    public function _empty($name){
+        $this->city($name);
+    }
+    
+    protected function city($name){
+        echo '当前城市:'.$name;
+    }
+    
+    /**
+     * 13、初始化、前置和后置操作
+     */
+    //初始化方法
+    public function _initialize(){
+        echo 'initialize<br/>';
+    }
+    //前置方法
+    public function _before_one(){
+        echo 'before<br/>';
+    }
+    public function one(){
+        echo 'one<br/>';
+    }
+    //后置方法
+    public function _after_one(){
+        echo 'after<br/>';
+    }
+    
+    
+    /**
+     * 19、自动验证
+     */
+    public function start19(){
+        //1、静态验证Model中
+        $Start = D("Start");
+        if(!$Start->create()){
+            exit($Start->getError());
+        }else{
+            $Start->add();
+        }
+        
+        //验证规则的定义格式: array(验证字段1,验证规则,错误提示,[验证条件,附加规则,验证时间])
+        //@验证规则：require 字段必须、email 邮箱、url URL地址、currency 货币、number 数字
+        //@验证条件：0 存在字段就验证（默认），1 必须验证，2 值不为空的时候验证
+        //@附加规则：unique验证是否唯一
+        //@验证时间：1新增数据时候验证,2编辑数据时候验证,3全部情况下验证（默认）
+        
+        //2、动态验证
+        $rules = array(
+            array('name', 'require', '用户名必须！'), // 用户名必须
+            array('name', '', '帐号名称已经存在！', 1, 'unique', 1), // 验证用户名是否已经存在
+            array('email', 'email', 'Email格式错误！', 2), // 如果输入则验证Email格式是否正确
+            array('password', '6,30', '密码长度不正确', 0, 'length'), // 验证密码是否在指定长度范围
+            array('repassword', 'password', '确认密码不一致', 0, 'confirm'), // 验证确认密码是否和密码一致  
+        );
+
+        if (!$Start->validate($rules)->create()) {
+            // 如果创建失败 表示验证没有通过 输出错误提示信息
+            exit($Start->getError());
+        } else {
+            // 验证通过 可以进行其他数据操作
+            $Start->add();
+        }
+    }
+    
+    /**
+     * 20、自动完成
+     */
+    public function start20(){
+        //1、静态方式，在模型类里面通过$_auto属性
+        $User = D("User"); // 实例化User对象
+        if (!$User->create()) { // 创建数据对象
+            // 如果创建失败 表示验证没有通过 输出错误提示信息
+            exit($User->getError());
+        } else {
+            // 验证通过 写入新增数据
+            $User->add();
+        }
+        
+        //规则:array(array(完成字段1, 完成规则, [完成条件, 附加规则]),);
+        //@完成时间：1新增数据时候处理,2更新数据时候处理,3全部情况下处理（默认）
+        //@附加规则：
+        
+        //2、动态方式，使用模型类的auto方法
+        $rules = array ( 
+            array('status', '1'), // 新增的时候把status字段设置为1
+            array('password', 'md5', 3, 'function'), // 对password字段在新增和编辑的时候使md5函数处理
+            array('update_time', 'time', 2, 'function'), // 对update_time字段在更新的时候写入当前时间戳
+        );
+        $User = M('User');
+        $User->auto($rules)->create();
+        $User->add();
+        
+        //修改数据对象
+        $User = D("User"); // 实例化User对象
+        $User->create(); // 生成数据对象
+        $User->status = 2; // 修改数据对象的status属性
+        $User->register_time = NOW_TIME; // 增加register_time属性
+        $User->add(); // 新增用户数据
     }
 
 }
