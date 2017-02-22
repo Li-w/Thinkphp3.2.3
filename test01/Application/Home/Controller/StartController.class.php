@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Thinkphp3.2.3快速入门
+ */
 namespace Home\Controller;
 
 use Think\Controller;

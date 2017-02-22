@@ -1,4 +1,4 @@
-https://github.com/
+﻿https://github.com/
 
 设置username和email，因为github每次commit都会记录他们。
 $ git config --global user.name "your name"
@@ -20,7 +20,18 @@ $ git config --global user.email "your_email@youremail.com"
 	(3)git push origin
 
 3、从Git更新到本地
-	(1)git pull?
+	(1)git pull？
+
+
+
+Git status -s(简短形式)	：查看本地有那些修改
+Git add			：添加到缓存
+Git diff			：查看写入缓存未写入缓存的区别
+git reset HEAD -- hello.php	：取消已缓存的内容
+git rm			：条目从缓存区中移除并删除本地文件
+git rm --cached		：将条目从缓存区中移除不删除本地文件
+git mv			：就是 git rm --cached 命令的操作， 重命名磁盘上的文件，然后再执行 git add 把新文件添加到缓存区。
+			   例，Git mv hello.php  a.php
 
 合并分支：Git merge
 	Git diff
@@ -29,3 +40,9 @@ $ git config --global user.email "your_email@youremail.com"
 查看分支：git branch
 切换分支：git checkout newbranch
 删除分支：git branch -d newbranch
+快速创建并切换：git checkout -b newtest
+
+尚未缓存的改动：git diff
+查看已缓存的改动： git diff --cached
+查看已缓存的与未缓存的所有改动：git diff HEAD
+显示摘要而非整个 diff：git diff --stat
